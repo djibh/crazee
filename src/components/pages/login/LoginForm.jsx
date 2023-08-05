@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Navigate } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("")
@@ -22,6 +22,7 @@ export default function LoginForm() {
       <h2>Connectez-vous</h2>
           <input value={inputValue} onChange={handleChange} type="text" placeholder="Entrez votre prénom..." required />
           <button>Accédez à votre espace</button>
+          <Link to="/order">Vers Order Page</Link>
     </form>
   )
 }
