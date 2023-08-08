@@ -40,18 +40,22 @@ const fonts = {
   P5: "48px",
   P6: "60px",
 }
+
 const gridUnit = 8
+
 const borderRadius = {
   subtle: 1,
   round: "5px",
   extraRound: "15px",
   circle: "50%",
 }
+
 const shadows = {
   strong : "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
   medium : "0px -2px 8px -2px rgb(0 0 0 / 20%)",
   soft : "0 -2px 8px -2px rgb(0 0 0 / 10%)"
 }
+
 const weights = {
   light: 300,
   regular: 400,
