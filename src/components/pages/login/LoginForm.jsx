@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { styled } from "styled-components"
 import { BsPersonCircle } from "react-icons/bs"
+import { IoChevronForward } from "react-icons/io5"
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("")
@@ -23,16 +24,18 @@ export default function LoginForm() {
       <hr />
       <h2>Connectez-vous</h2>
           <div className="input-container">
-            <BsPersonCircle className="icon"/>
+            <BsPersonCircle className="form-icons"/>
             <input value={inputValue} onChange={ handleChange } type="text" placeholder="Entrez votre prénom" required />
           </div>
-          <button>Accéder à mon espace</button>
-    </LoginFormStyled>
+          <button className="input-button">
+            <span>Accéder à mon espace</span>
+            <IoChevronForward className="form-icons"/>
+          </button>    
+      </LoginFormStyled>
   )
 }
 
 const LoginFormStyled = styled.form`
-  background: green;
   text-align: center;
   max-width: 500px;
   min-width: 400px;
@@ -64,12 +67,6 @@ const LoginFormStyled = styled.form`
     padding: 18px 24px;
     margin: 18px 0;
 
-    .icon {
-      font-size: 15px;
-      margin-right: 8px;
-      color: #93a2b1;
-    }
-
     input {
       background-color: white;
       border: none;
@@ -80,6 +77,41 @@ const LoginFormStyled = styled.form`
         color: lightgrey;
       }
     }
+    .form-icons {
+      font-size: 15px;
+      margin-right: 8px;
+      color: #93a2b1;
+    }
   }
 
+  .input-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #ff9f1b;
+    border: 1px solid #ff9f1b;
+    font-size: 15px;
+    font-weight: 800;
+    font-family: "Open Sans", sans-serif;
+
+    &:hover:not(:disabled) {
+      background-color: white;
+      color: #ff9f1b;
+      border: 1px solid #ff9f1b;
+      transition: all 200ms ease-out;
+    }
+
+    &:active {
+      color: white;
+      background-color: #ff9f1b;
+      border: 1px solid #ff9f1b;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
 `;
