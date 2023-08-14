@@ -1,5 +1,11 @@
-import { useState } from "react"
+ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { styled } from "styled-components"
+import { IoChevronForward } from "react-icons/io5"
+import { BsPersonCircle } from "react-icons/bs"
+import TextInput from "../../reusable-ui/TextInput"
+import PrimaryButton from "../../reusable-ui/PrimaryButton"
+import { theme } from "../../../theme"
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("")
@@ -8,7 +14,7 @@ export default function LoginForm() {
   const handleSubmit = (event) => { 
     event.preventDefault()
     setInputValue("")
-    navigate(`order/${inputValue}`)
+    navigate(`order/${ inputValue }`)
   }
 
   const handleChange = (event) => { 
@@ -16,12 +22,50 @@ export default function LoginForm() {
    }
 
   return (
-    <form action="submit" onSubmit={handleSubmit}>
+    <LoginFormStyled action="submit" onSubmit={ handleSubmit }>
       <h1>Bienvenue chez nous !</h1>
-      <br />
+      <hr />
       <h2>Connectez-vous</h2>
-          <input value={inputValue} onChange={handleChange} type="text" placeholder="Entrez votre prénom..." required />
-          <button>Accédez à votre espace</button>
-    </form>
+        <TextInput 
+          value={inputValue} 
+          onChange={ handleChange } 
+          placeholder={"Entrez votre prénom"} 
+          Icon={<BsPersonCircle className="form-icons"/>} 
+          required
+        />
+        <PrimaryButton 
+          label={"Accéder à mon espace"}
+          Icon={<IoChevronForward />}
+        /> 
+      </LoginFormStyled>
   )
 }
+
+const LoginFormStyled = styled.form`
+  text-align: center;
+  max-width: 500px;
+  min-width: 400px;
+  margin: 0px auto;
+  padding: 2.5rem ${theme.spacing.lg};
+  border-radius: ${theme.borderRadius.round};
+  font-family: "Amatic SC", cursive;
+
+  hr {
+    border: 1.5px solid ${theme.colors.loginDivider};
+  }
+
+  h1 {
+    font-size: ${theme.fonts.size.P5};
+  }
+
+  h2 {
+    margin: 20px 10px 10px;
+    color: ${theme.colors.white};
+    font-size: ${theme.fonts.size.P4};
+  }
+
+  .form-icons {
+      margin-right: ${theme.spacing.xs};
+      color: ${theme.colors.greySemiDark};
+    }  
+`;
