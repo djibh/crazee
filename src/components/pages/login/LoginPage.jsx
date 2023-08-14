@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import LoginForm from "./LoginForm";
 import Logo from "../../reusable-ui/Logo"
+import backgroundImage from "../../../assets/img/burger-background.jpg"
 
 export default function LoginPage() {
   return <LoginPageStyled>
@@ -18,7 +19,7 @@ const LoginPageStyled = styled.div`
 
   &::before {
     content: "";
-    background: url("/src/assets/img/burger-background.jpg") rgba(0, 0, 0, 0.7);
+    background: url(${backgroundImage}) rgba(0, 0, 0, 0.7);
     background-size: cover;
     background-position: center;
     background-blend-mode: darken;

@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { theme } from "../../theme"
+import backgroundImage from "../../assets/img/burger-background.jpg"
 
 export default function Logo() {
   return (
