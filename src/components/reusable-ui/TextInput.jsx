@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types'
 import { styled } from 'styled-components';
 
+
 export default function TextInput({ value, onChange, Icon, ...extraProps }) {
   return <InputStyled>
-      {Icon}
+      {Icon && Icon}
       <input value={ value } onChange={ onChange } type="text" { ...extraProps } />
     </InputStyled>
 }
@@ -15,22 +16,20 @@ const InputStyled = styled.div`
     align-items: center;
     padding: 18px 24px;
     margin: 18px 0;
+
+    & * {
+      font-size: 15px;
+    }
     
     input {
       background-color: white;
       border: none;
-      font-size: 15px;
       color: #17161a;
       width: 100%;
       &::placeholder {
         color: lightgrey;
       }
     }
-    .form-icons {
-      font-size: 15px;
-      margin-right: 8px;
-      color: #93a2b1;
-    }  
 `;
     
 TextInput.propTypes = {

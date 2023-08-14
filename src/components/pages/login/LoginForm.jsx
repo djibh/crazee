@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom"
 import { styled } from "styled-components"
 import { IoChevronForward } from "react-icons/io5"
 import { BsPersonCircle } from "react-icons/bs"
-import TextInput from "./TextInput"
+import TextInput from "../../reusable-ui/TextInput"
+import PrimaryButton from "../../reusable-ui/PrimaryButton"
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("")
@@ -31,11 +32,10 @@ export default function LoginForm() {
           Icon={<BsPersonCircle className="form-icons"/>} 
           required
         />
-          
-        <button className="input-button">
-          <span>Accéder à mon espace</span>
-          <IoChevronForward className="form-icons"/>
-        </button>    
+        <PrimaryButton 
+          label={"Accéder à mon espace"}
+          Icon={<IoChevronForward />}
+        /> 
       </LoginFormStyled>
   )
 }
@@ -64,36 +64,8 @@ const LoginFormStyled = styled.form`
     font-size: 36px;
   }
 
-  
-
-  .input-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    width: 100%;
-    background-color: #ff9f1b;
-    border: 1px solid #ff9f1b;
-    font-size: 15px;
-    font-weight: 800;
-    font-family: "Open Sans", sans-serif;
-
-    &:hover:not(:disabled) {
-      background-color: white;
-      color: #ff9f1b;
-      border: 1px solid #ff9f1b;
-      transition: all 200ms ease-out;
-    }
-
-    &:active {
-      color: white;
-      background-color: #ff9f1b;
-      border: 1px solid #ff9f1b;
-    }
-
-    &:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-  }
+  .form-icons {
+      margin-right: 8px;
+      color: #93a2b1;
+    }  
 `;
