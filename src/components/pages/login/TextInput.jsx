@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { styled } from 'styled-components';
 
-export default function Input({ value, onChange, Icon, ...extraProps }) {
+export default function TextInput({ value, onChange, Icon, ...extraProps }) {
   return <InputStyled>
       {Icon}
       <input value={ value } onChange={ onChange } type="text" { ...extraProps } />
@@ -33,7 +33,7 @@ const InputStyled = styled.div`
     }  
 `;
     
-Input.propTypes = {
+TextInput.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   Icon: PropTypes.shape
