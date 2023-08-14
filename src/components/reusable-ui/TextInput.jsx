@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { styled } from 'styled-components';
+import { theme } from '../../theme';
 
 
 export default function TextInput({ value, onChange, Icon, ...extraProps }) {
@@ -10,24 +11,25 @@ export default function TextInput({ value, onChange, Icon, ...extraProps }) {
 }
 
 const InputStyled = styled.div`
-    background-color: white;
-    border-radius: 5px;
+    background-color: ${theme.colors.white};
+    border-radius: ${theme.borderRadius.round};
     display: flex;
     align-items: center;
     padding: 18px 24px;
     margin: 18px 0;
 
     & * {
-      font-size: 15px;
+      font-size: ${theme.fonts.size.P0};
     }
     
     input {
-      background-color: white;
+      background-color: ${theme.colors.white};
       border: none;
-      color: #17161a;
+      color: ${theme.colors.dark};
       width: 100%;
+      
       &::placeholder {
-        color: lightgrey;
+        color: ${theme.colors.greyMedium};
       }
     }
 `;
@@ -35,5 +37,5 @@ const InputStyled = styled.div`
 TextInput.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
-  Icon: PropTypes.shape
+  Icon: PropTypes.element
 }

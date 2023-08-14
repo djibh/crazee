@@ -19,10 +19,10 @@ const LogoStyled = styled.span`
   h1 {
     display: inline;
     text-align: center;
-    color: #ffa01b;
-    font-size: 36px;
+    color: ${theme.colors.primary};
+    font-size: ${theme.fonts.size.P4};
     line-height: 1em;
-    font-weight: 700;
+    font-weight: ${theme.fonts.weight.bold};
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-family: "Amatic SC", cursive;

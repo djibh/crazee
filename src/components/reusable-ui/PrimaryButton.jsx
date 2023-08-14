@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { styled } from 'styled-components';
+import { theme } from '../../theme';
 
 export default function PrimaryButton({ label, Icon }) {
   return <PrimaryButtonStyled>
@@ -13,25 +14,26 @@ const PrimaryButtonStyled = styled.button`
     justify-content: center;
     align-items: center;
     gap: 12px;
-    border-radius: 5px;
+    padding: 18px 24px;
     width: 100%;
-    background-color: #ff9f1b;
-    border: 1px solid #ff9f1b;
-    font-size: 15px;
-    font-weight: 800;
+    border-radius: ${theme.borderRadius.round};
+    background-color: ${theme.colors.primary_burger};
+    border: 1px solid ${theme.colors.primary_burger};
+    font-size: ${theme.fonts.size.P0};
+    font-weight: ${theme.fonts.weight.heavy};
     font-family: "Open Sans", sans-serif;
 
     &:hover:not(:disabled) {
-      background-color: white;
-      color: #ff9f1b;
-      border: 1px solid #ff9f1b;
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary_burger};
+      border: 1px solid ${theme.colors.primary_burger};
       transition: all 200ms ease-out;
     }
 
     &:active {
-      color: white;
-      background-color: #ff9f1b;
-      border: 1px solid #ff9f1b;
+      color: ${theme.colors.white};
+      background-color: ${theme.colors.primary_burger};
+      border: 1px solid ${theme.colors.primary_burger};
     }
 
     &:disabled {
@@ -42,5 +44,5 @@ const PrimaryButtonStyled = styled.button`
 
 PrimaryButton.propTypes = {
     label: PropTypes.string,
-    Icon: PropTypes.shape
+    Icon: PropTypes.element
 }

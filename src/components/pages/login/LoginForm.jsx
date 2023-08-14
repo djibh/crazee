@@ -1,10 +1,11 @@
-import { useState } from "react"
+ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { styled } from "styled-components"
 import { IoChevronForward } from "react-icons/io5"
 import { BsPersonCircle } from "react-icons/bs"
 import TextInput from "../../reusable-ui/TextInput"
 import PrimaryButton from "../../reusable-ui/PrimaryButton"
+import { theme } from "../../../theme"
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("")
@@ -45,27 +46,26 @@ const LoginFormStyled = styled.form`
   max-width: 500px;
   min-width: 400px;
   margin: 0px auto;
-  padding: 2.5rem 2rem;
-  border-radius: 5px;
+  padding: 2.5rem ${theme.spacing.lg};
+  border-radius: ${theme.borderRadius.round};
   font-family: "Amatic SC", cursive;
 
   hr {
-    border: 1.5px solid #f56a2c;
+    border: 1.5px solid ${theme.colors.loginDivider};
   }
 
   h1 {
-    font-size: 48px;
+    font-size: ${theme.fonts.size.P5};
   }
 
   h2 {
-    color: #8e8b8b;
     margin: 20px 10px 10px;
-    color: white;
-    font-size: 36px;
+    color: ${theme.colors.white};
+    font-size: ${theme.fonts.size.P4};
   }
 
   .form-icons {
-      margin-right: 8px;
-      color: #93a2b1;
+      margin-right: ${theme.spacing.xs};
+      color: ${theme.colors.greySemiDark};
     }  
 `;
