@@ -4,9 +4,9 @@ import Logo from "../../reusable-ui/Logo"
 
 export default function LoginPage() {
   return <LoginPageStyled>
-    <Logo />
-    <LoginForm />
-  </LoginPageStyled>
+            <Logo />
+            <LoginForm />
+         </LoginPageStyled>
 }
 
 const LoginPageStyled = styled.div`
