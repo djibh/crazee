@@ -18,9 +18,6 @@ const NavbarStyled = styled.nav`
     justify-content: space-between;
     padding-inline: 20px;
     
-    h1 {
-      font-size: 1rem;
-    }
     .left-side {
       background: pink;
     }

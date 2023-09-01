@@ -1,19 +1,30 @@
 import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
 import { styled } from 'styled-components';
+import Profile from './Profile';
 
 export default function NavbarRightSide({ username }) {
   return <NavbarRightSideStyled className="right-side">
-            <h1>Bonjour { username }</h1>
-            <Link to="/"><button>Déconnexion</button></Link>
+            {/* <div className="admin-button">Admin Button</div> */}
+            <Profile username={ username }/>
         </NavbarRightSideStyled>
 }
+
+const NavbarRightSideStyled = styled.div`
+    display: flex;
+    align-items: center;
+    padding-right: 50px;
+
+    h1 {
+      font-size: 1rem;
+      margin: 0;
+      color: black;
+    }
+
+    /* .admin-button {
+        background: lightblue;
+    } */
+`;
 
 NavbarRightSide.propTypes = {
     username: PropTypes.string,
 }
-
-const NavbarRightSideStyled = styled.div`
-    background: purple;
-
-`;
