@@ -1,10 +1,10 @@
+import PropTypes from "prop-types"
 import { styled } from "styled-components";
 import { theme } from "../../theme"
-import backgroundImage from "../../assets/img/burger-background.jpg"
 
-export default function Logo() {
+export default function Logo({ className, onClick }) {
   return (
-    <LogoStyled>
+    <LogoStyled className={className} onClick={onClick}>
       <h1>CRAZEE</h1>
       <img src="/logo-orange.png" alt="logo" />
       <h1>BURGER</h1>
@@ -15,7 +15,6 @@ export default function Logo() {
 const LogoStyled = styled.span`
   display: flex;
   align-items: center;
-  transform: scale(2.5);
 
   h1 {
     display: inline;
@@ -37,3 +36,8 @@ const LogoStyled = styled.span`
     margin: 0 ${ theme.gridUnit / 2 }px;
   }
 `;
+
+Logo.propTypes = {
+  className: PropTypes.string,
+  onClick: PropTypes.func
+}
