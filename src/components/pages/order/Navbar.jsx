@@ -1,15 +1,12 @@
 import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
+import NavbarRightSide from './NavbarRightSide.jsx'
 import { styled } from "styled-components";
 
 export default function Navbar({ username }) {
   return (
     <NavbarStyled>
       <div className="left-side">LEFT SIDE</div>
-        <div className="right-side">
-          <h1>Bonjour { username }</h1>
-          <Link to="/"><button>Déconnexion</button></Link>
-        </div>
+        <NavbarRightSide username={username}/>
     </NavbarStyled>
   )
 }
@@ -25,10 +22,6 @@ const NavbarStyled = styled.nav`
     .left-side {
       background: pink;
     }
-    .right-side {
-      background: purple;
-    }
-
 `;
 
 Navbar.propTypes = {
