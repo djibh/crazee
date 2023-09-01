@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import Navbar from "./Navbar";
 import Main from "./Main";
+import { theme } from "../../../theme";
 
 export default function OrderPage() {
   const { username } = useParams()
@@ -18,7 +19,7 @@ export default function OrderPage() {
 
 const OrderPageStyled = styled.div`
   height: 100vh;
-  background: orange;
+  background: ${theme.colors.primary};
   display: flex;
   justify-content: center;
   align-items: center;
