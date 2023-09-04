@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import Navbar from "./Navbar";
 import Main from "./Main";
 import { theme } from "../../../theme";
+import UnderContruction from "../../reusable-ui/UnderContruction";
 
 export default function OrderPage() {
   const { username } = useParams()
@@ -13,6 +14,7 @@ export default function OrderPage() {
         <Navbar username={username}/>
         <Main />
       </div>
+      <UnderContruction />
     </OrderPageStyled>
   )
 }

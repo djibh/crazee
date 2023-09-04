@@ -2,11 +2,13 @@ import { styled } from "styled-components";
 import LoginForm from "./LoginForm";
 import Logo from "../../reusable-ui/Logo"
 import backgroundImage from "../../../assets/img/burger-background.jpg"
+import UnderContruction from "../../reusable-ui/UnderContruction";
 
 export default function LoginPage() {
   return <LoginPageStyled>
             <Logo className={"logo-login-page"}/>
             <LoginForm />
+            <UnderContruction />
          </LoginPageStyled>
 }
 
