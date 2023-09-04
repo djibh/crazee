@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
-import { theme } from "../../../theme";
 import Basket from "./Basket";
 import Menu from "./Menu";
+import { theme } from "../../../../theme";
 
 export default function Main() {
   return (

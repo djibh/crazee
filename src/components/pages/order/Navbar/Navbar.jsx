@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import NavbarRightSide from './NavbarRightSide.jsx'
 import { styled } from "styled-components";
-import Logo from "../../reusable-ui/Logo.jsx"
-import { theme } from '../../../theme/index.js';
-import { refreshPage } from '../../../utils/window.js';
+import Logo from "../../../reusable-ui/Logo.jsx"
+import { theme } from '../../../../theme';
+import { refreshPage } from '../../../../utils/window.js';
 
 export default function Navbar({ username }) {
   return (
