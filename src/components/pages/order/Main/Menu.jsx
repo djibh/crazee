@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { styled } from "styled-components";
 
 export default function Menu() {
+// const [menu, setmenu] = useState(fakeMenu)
+
   return (
-    <MenuStyled>Menu</MenuStyled>
+    <MenuStyled>
+      
+    </MenuStyled>
   )
 }
 
