@@ -7,7 +7,7 @@ export default function UnderContruction() {
     <UnderConstructionStyled>
         <Link to="https://github.com/djibh/crazee">
             <img src={github} />
-            <b>Under Contruction</b>
+            <b>Under Construction</b>
         </Link>
     </UnderConstructionStyled>
   )
