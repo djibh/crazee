@@ -8,10 +8,10 @@ export default function Product({title, imageSource, price}) {
             <img src={imageSource} alt={title} />
         </div>
         <div className="info-text">
-            <div className="description">
             <div className="title">{ title }</div>
-            <div className="price">{ price }</div>
-            <button className="add-button">Ajouter</button>
+            <div className="description">
+                <div className="price">{ price }</div>
+                <button className="add-button">Ajouter</button>
             </div>
         </div>
     </ProductStyled>
@@ -19,24 +19,30 @@ export default function Product({title, imageSource, price}) {
 }
 
 const ProductStyled = styled.div`
-
+    display: grid;
+    grid-template-rows: 65% 1fr;
+    padding: 20px;
+    padding-bottom: 10px;
+    width: 220px;
+    height: 300px;
     background: red;
-    width: 224px;
-    height: 330px;
     box-shadow: -8px 8px 20px 0px rgba(0, 0, 0, 0.2);
 
     .image {
-      border: 1px solid fuchsia;
-      width: 100px;
+      border: 1px solid yellow;
+      width: 100%;
       height: auto;
+      margin-top: 30px;
+
       img {
         width: 100%;
         height: 100%;
+        object-fit: contain;
       }
     }
 
     .description {
-      border: 1px solid fuchsia;
+      border: 1px solid blue;
     }
 `;
 
