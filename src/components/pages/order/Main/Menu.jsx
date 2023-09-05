@@ -2,7 +2,8 @@ import { useState } from "react";
 import { styled } from "styled-components";
 import { fakeMenu2 } from "../../../../fakeData/fakeMenu"
 import { theme } from "../../../../theme";
-import Product from "./Product";
+import Card from "../../../reusable-ui/Card";
+import { formatPrice } from "../../../../utils/maths"
 
 export default function Menu() {
 const [menu, setmenu] = useState(fakeMenu2)
@@ -10,8 +11,8 @@ const [menu, setmenu] = useState(fakeMenu2)
   return (
     <MenuStyled>
       {
-        menu.map((product, idx) => {
-          return <Product key={idx} title={product.title} imageSource={product.imageSource} price={product.price} />
+        menu.map(({ id, title, imageSource, price }) => {
+          return <Card key={id} title={title} imageSource={imageSource} leftDescription={formatPrice(price)} />
         })
       }
     </MenuStyled>
@@ -26,6 +27,4 @@ const MenuStyled = styled.section`
   justify-items: center;
   background: ${theme.colors.background_white};
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
-
-  
 `;
