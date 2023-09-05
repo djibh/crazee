@@ -10,7 +10,18 @@ const [menu, setmenu] = useState(fakeMenu2)
     <MenuStyled>
       {
         menu.map((product, idx) => {
-          return <div key={idx} className="product">{ product.title }</div>
+          return <div key={idx} className="product">
+            <div className="image">
+              <img src={product.imageSource} alt={product.title} />
+            </div>
+            <div className="info-text">
+              <div className="title">{ product.title }</div>
+              <div className="description">
+                <div className="price">{ product.price }</div>
+                <button className="add-button">Ajouter</button>
+              </div>
+            </div>
+          </div>
         })
       }
     </MenuStyled>
@@ -31,5 +42,15 @@ const MenuStyled = styled.section`
     width: 224px;
     height: 330px;
     box-shadow: -8px 8px 20px 0px rgba(0, 0, 0, 0.2);
+
+    .image {
+      border: 1px solid fuchsia;
+      width: 100px;
+      height: auto;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 `;
