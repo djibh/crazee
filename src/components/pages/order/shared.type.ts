@@ -1,0 +1,3 @@
+type Username = {
+    username: string,
+}

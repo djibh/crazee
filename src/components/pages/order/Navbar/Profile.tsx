@@ -3,11 +3,7 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { theme } from "../../../../theme"
 
-type ProfileProps = {
-  username: string
-}
-
-export default function Profile({ username }: ProfileProps) {
+export default function Profile({ username }: Username) {
   return (
     <ProfileStyled>
       <div className="info">

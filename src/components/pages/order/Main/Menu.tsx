@@ -12,7 +12,11 @@ const [menu, setmenu] = useState(fakeMenu2)
     <MenuStyled>
       {
         menu.map(({ id, title, imageSource, price }) => {
-          return <Card key={id} title={title} imageSource={imageSource} leftDescription={formatPrice(price)} />
+          return <Card 
+                    key={id} 
+                    title={title} 
+                    imageSource={imageSource} 
+                    leftDescription={formatPrice(price)} />
         })
       }
     </MenuStyled>

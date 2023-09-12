@@ -4,11 +4,7 @@ import Logo from "../../../reusable-ui/Logo.jsx"
 import { theme } from '../../../../theme/index.js';
 import { refreshPage } from '../../../../utils/window.js';
 
-type NavbarProps = {
-  username: string
-}
-
-export default function Navbar({ username }: NavbarProps) {
+export default function Navbar({ username }: Username) {
   return (
     <NavbarStyled>
       <Logo className={"logo-order-page"} onClick={refreshPage}/>
