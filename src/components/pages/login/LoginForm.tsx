@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { FormEvent, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { styled } from "styled-components"
 import { IoChevronForward } from "react-icons/io5"
@@ -7,18 +7,20 @@ import TextInput from "../../reusable-ui/TextInput"
 import PrimaryButton from "../../reusable-ui/PrimaryButton"
 import { theme } from "../../../theme"
 
+
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("")
   const navigate = useNavigate()
 
-  const handleSubmit = (event) => { 
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => { 
     event.preventDefault()
     setInputValue("")
     navigate(`order/${ inputValue }`)
   }
 
-  const handleChange = (event) => { 
-    setInputValue(event.target.value)
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => { 
+    const target = event.target
+    setInputValue(target.value)
    }
 
   return (

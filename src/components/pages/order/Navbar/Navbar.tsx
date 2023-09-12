@@ -1,11 +1,14 @@
-import PropTypes from 'prop-types';
 import NavbarRightSide from './NavbarRightSide.jsx'
 import { styled } from "styled-components";
 import Logo from "../../../reusable-ui/Logo.jsx"
-import { theme } from '../../../../theme';
+import { theme } from '../../../../theme/index.js';
 import { refreshPage } from '../../../../utils/window.js';
 
-export default function Navbar({ username }) {
+type NavbarProps = {
+  username: string
+}
+
+export default function Navbar({ username }: NavbarProps) {
   return (
     <NavbarStyled>
       <Logo className={"logo-order-page"} onClick={refreshPage}/>
@@ -28,7 +31,3 @@ const NavbarStyled = styled.nav`
       cursor: pointer;
     }
 `;
-
-Navbar.propTypes = {
-    username: PropTypes.string,
-}

@@ -1,8 +1,11 @@
-import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 import Profile from './Profile';
 
-export default function NavbarRightSide({ username }) {
+type NavbarRightSideProps = {
+    username: string
+}
+
+export default function NavbarRightSide({ username }: NavbarRightSideProps) {
   return <NavbarRightSideStyled className="right-side">
             {/* <div className="admin-button">Admin Button</div> */}
             <Profile username={ username }/>
@@ -24,7 +27,3 @@ const NavbarRightSideStyled = styled.div`
         background: lightblue;
     } */
 `;
-
-NavbarRightSide.propTypes = {
-    username: PropTypes.string,
-}

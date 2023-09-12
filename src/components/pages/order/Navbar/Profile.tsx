@@ -1,10 +1,13 @@
-import PropTypes from "prop-types"
 import { BsPersonCircle } from "react-icons/bs"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { theme } from "../../../../theme"
 
-export default function Profile({ username }) {
+type ProfileProps = {
+  username: string
+}
+
+export default function Profile({ username }: ProfileProps) {
   return (
     <ProfileStyled>
       <div className="info">
@@ -68,7 +71,3 @@ const ProfileStyled = styled.div`
     color: ${theme.colors.greyBlue};
   }
 `
-
-Profile.propTypes = {
-    username: PropTypes.string
-}
