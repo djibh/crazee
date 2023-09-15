@@ -1,10 +1,9 @@
 import { styled } from 'styled-components';
 import Profile from './Profile';
 import ToggleButton from '../../../reusable-ui/ToggleButton';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
-import { theme } from '../../../../theme';
+import { toast } from 'react-toastify';
 import { useState } from 'react';
+import ToastAdmin from './ToastAdmin';
 
 export default function NavbarRightSide({ username }: Username) {
   const [isModeAdmin, setIsModeAdmin] = useState(false)
@@ -15,7 +14,7 @@ export default function NavbarRightSide({ username }: Username) {
         // icon: <FaUserSecret size={30} />,
         theme: "dark",
         position: "bottom-right",
-        autoClose: 5000,
+        autoClose: 3500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -33,7 +32,7 @@ export default function NavbarRightSide({ username }: Username) {
               onToggle={displayToastNotification}
             />
             <Profile username={ username }/>
-            <ToastContainer />
+            <ToastAdmin />
         </NavbarRightSideStyled>
 }
 
@@ -48,22 +47,4 @@ const NavbarRightSideStyled = styled.div`
       margin: 0;
       color: black;
     }
-
-    .toaster {
-    max-width: 300px;
-  }
-
-  .Toastify__toast.Toastify__toast-theme--dark.Toastify__toast--info {
-    background: ${theme.colors.background_dark};
-  }
-
-  .body-toast {
-    .Toastify__toast-icon.Toastify--animate-icon.Toastify__zoom-enter {
-      margin-right: 20px;
-      margin-left: 5px;
-    }
-    div {
-      line-height: 1.3em;
-    }
-  }
 `;
