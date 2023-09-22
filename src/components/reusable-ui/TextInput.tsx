@@ -19,7 +19,7 @@ const InputStyled = styled.div`
     margin: 18px 0;
 
     & * {
-      font-size: ${theme.fonts.size.P0};
+      font-size: ${theme.fonts.size.SM};
     }
     
     input {

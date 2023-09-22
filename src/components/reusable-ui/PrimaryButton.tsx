@@ -19,7 +19,7 @@ const PrimaryButtonStyled = styled.button`
     border-radius: ${theme.borderRadius.round};
     background-color: ${theme.colors.primary_burger};
     border: 1px solid ${theme.colors.primary_burger};
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     font-weight: ${theme.fonts.weight.heavy};
     font-family: "Open Sans", sans-serif;
 
