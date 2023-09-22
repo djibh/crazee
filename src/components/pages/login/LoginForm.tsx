@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react"
+import { ChangeEventHandler, FormEvent, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { styled } from "styled-components"
 import { IoChevronForward } from "react-icons/io5"
@@ -6,7 +6,6 @@ import { BsPersonCircle } from "react-icons/bs"
 import TextInput from "../../reusable-ui/TextInput"
 import PrimaryButton from "../../reusable-ui/PrimaryButton"
 import { theme } from "../../../theme"
-
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("")
@@ -18,7 +17,7 @@ export default function LoginForm() {
     navigate(`order/${ inputValue }`)
   }
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => { 
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => { 
     const target = event.target
     setInputValue(target.value)
    }
@@ -33,7 +32,6 @@ export default function LoginForm() {
           onChange={ handleChange } 
           placeholder={"Entrez votre prénom"} 
           Icon={<BsPersonCircle className="form-icons"/>} 
-          required
         />
         <PrimaryButton 
           label={"Accéder à mon espace"}
