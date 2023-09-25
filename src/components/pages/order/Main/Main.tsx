@@ -34,5 +34,6 @@ const MainStyled = styled.main`
     .menu-and-admin {
       overflow-y: hidden;
       display: grid;
+      position: relative;
     }
 `;

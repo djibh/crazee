@@ -1,8 +1,14 @@
 import PropTypes from 'prop-types'
 import { styled } from 'styled-components';
 import { theme } from '../../theme';
+import { ReactElement } from 'react';
 
-export default function PrimaryButton({ label, Icon }) {
+type PrimaryButtonProps = {
+  label: string,
+  Icon: ReactElement
+}
+
+export default function PrimaryButton({ label, Icon }: PrimaryButtonProps) {
   return <PrimaryButtonStyled>
             <span>{ label }</span>
             {Icon && Icon}
