@@ -3,16 +3,16 @@ import { theme } from "../../theme";
 import { ReactElement } from "react";
 
 type TabProps = {
+    label?: string,
     Icon: ReactElement,
     onClick: () => void,
     className: string
 }
-export default function Tab({Icon, onClick, className}: TabProps) {
+export default function Tab({label, Icon, onClick, className}: TabProps) {
   return (
     <TabStyled onClick={ onClick } className={ className }>
-        <div className="icon">
-            { Icon }
-        </div>
+        <div className="icon">{ Icon }</div>
+        {label && <span className="label">{ label }</span> }
     </TabStyled>
   )
 }
@@ -49,5 +49,9 @@ const TabStyled = styled.button`
 
   .icon {
     display: flex;
+  }
+
+  .label {
+    padding-left: 13px;
   }
 `;
