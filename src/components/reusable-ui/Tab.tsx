@@ -3,11 +3,13 @@ import { theme } from "../../theme";
 import { ReactElement } from "react";
 
 type TabProps = {
-    Icon: ReactElement
+    Icon: ReactElement,
+    onClick: () => void,
+    className: string
 }
-export default function Tab({Icon}: TabProps) {
+export default function Tab({Icon, onClick, className}: TabProps) {
   return (
-    <TabStyled>
+    <TabStyled onClick={ onClick } className={ className }>
         <div className="icon">
             { Icon }
         </div>
