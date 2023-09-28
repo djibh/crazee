@@ -6,41 +6,27 @@ import { MdModeEditOutline } from 'react-icons/md'
 import { useContext } from "react";
 import { theme } from "../../../../../theme";
 import OrderContext from "../../../../../context/OrderContext";
+import { tabsConfig } from "./tabsConfig";
 
 export default function AdminTabs() {
   const { isCollapsed, setIsCollapsed, currentTabSelected, setCurrentTabSelected } = useContext(OrderContext)
-
-  const tabsConfig = [
-    {
-      index: "add",
-      label: "Ajouter un produit",
-      Icon: <AiOutlinePlus />,
-    },
-    {
-      index: "edit",
-      label: "Modifier un produit",
-      Icon: <MdModeEditOutline />,
-    },
-  ]
-
-  const handleCollapseClick = () => {
-    setIsCollapsed(!isCollapsed)
-  }
-
+  
   const selectTab = (tabSelected: string) => {
     setIsCollapsed(false)
     setCurrentTabSelected(tabSelected)
   }
 
+  const tabs = tabsConfig
+  
   return (
     <AdminTabsStyled>
         <Tab 
           Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />} 
-          onClick={ handleCollapseClick }
+          onClick={ () => setIsCollapsed(!isCollapsed) }
           className={ isCollapsed ? "is-active" : "" }
         />        
 
-        { tabsConfig.map((tab, idx) => {                 
+        { tabs.map((tab, idx) => {                 
           return <Tab 
             key={idx}
             label={tab.label}
