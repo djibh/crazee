@@ -1,12 +1,19 @@
 import PropTypes from 'prop-types'
 import { styled } from 'styled-components';
 import { theme } from '../../theme';
+import { ChangeEventHandler, ReactElement } from 'react';
 
+type TextInputProps = {
+  value: string,
+  onChange: ChangeEventHandler<HTMLInputElement>,
+  placeholder: string,
+  Icon: ReactElement
+}
 
-export default function TextInput({ value, onChange, Icon, ...extraProps }) {
+export default function TextInput({ value, onChange, Icon, ...extraProps }: TextInputProps) {
   return <InputStyled>
       {Icon && Icon}
-      <input value={ value } onChange={ onChange } type="text" { ...extraProps } />
+      <input value={ value } onChange={ onChange } type="text" { ...extraProps } required/>
     </InputStyled>
 }
 
@@ -19,7 +26,7 @@ const InputStyled = styled.div`
     margin: 18px 0;
 
     & * {
-      font-size: ${theme.fonts.size.P0};
+      font-size: ${theme.fonts.size.SM};
     }
     
     input {

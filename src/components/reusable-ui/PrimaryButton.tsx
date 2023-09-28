@@ -1,8 +1,14 @@
 import PropTypes from 'prop-types'
 import { styled } from 'styled-components';
 import { theme } from '../../theme';
+import { ReactElement } from 'react';
 
-export default function PrimaryButton({ label, Icon }) {
+type PrimaryButtonProps = {
+  label: string,
+  Icon: ReactElement
+}
+
+export default function PrimaryButton({ label, Icon }: PrimaryButtonProps) {
   return <PrimaryButtonStyled>
             <span>{ label }</span>
             {Icon && Icon}
@@ -19,7 +25,7 @@ const PrimaryButtonStyled = styled.button`
     border-radius: ${theme.borderRadius.round};
     background-color: ${theme.colors.primary_burger};
     border: 1px solid ${theme.colors.primary_burger};
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     font-weight: ${theme.fonts.weight.heavy};
     font-family: "Open Sans", sans-serif;
 

@@ -14,24 +14,24 @@ export default function UnderContruction() {
 }
 
 const UnderConstructionStyled = styled.button`
-    display: flex;
     position: fixed;
-    align-items: center;
-    justify-content: space-between;
     bottom: 20px;
     margin: auto;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 0rem;
+
     background-color: #e25549;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    
+    border: 1px solid transparent;
+    border-radius: 5px;
+
     font-size: 1.1rem;
 
     * {
-        padding-inline: 4px;
+        padding-inline: 0.5rem;
     }
 
     &:hover {
-        background-color: yellow;
         background-color: #c3807a;
     }
 
@@ -44,4 +44,5 @@ const UnderConstructionStyled = styled.button`
     img {
         width: 30px;
     }
+
 `;

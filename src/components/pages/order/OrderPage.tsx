@@ -4,18 +4,34 @@ import Navbar from "./Navbar/Navbar";
 import Main from "./Main/Main";
 import UnderContruction from "../../reusable-ui/UnderContruction";
 import { theme } from "../../../theme";
+import { useState } from "react";
+import OrderContext from "../../../context/OrderContext"
 
 export default function OrderPage() {
-  const { username } = useParams()
+  const [isModeAdmin, setIsModeAdmin] = useState(false)
+  const [isCollapsed, setIsCollapsed] = useState(false)
+  const [currentTabSelected, setCurrentTabSelected] = useState("add")
+
+
+  const orderContextValue = {
+    isModeAdmin,
+    setIsModeAdmin,
+    isCollapsed,
+    setIsCollapsed,
+    currentTabSelected,
+    setCurrentTabSelected
+  }
 
   return (
-    <OrderPageStyled>
-      <div className="container">
-        <Navbar username={username as string}/>
-        <Main />
-      </div>
-      <UnderContruction />
-    </OrderPageStyled>
+    <OrderContext.Provider value={ orderContextValue }>
+      <OrderPageStyled>
+        <div className="container">
+          <Navbar />
+          <Main />
+        </div>
+        <UnderContruction />
+      </OrderPageStyled>
+    </OrderContext.Provider>
   )
 }
 
