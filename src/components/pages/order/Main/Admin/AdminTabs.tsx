@@ -2,39 +2,58 @@ import styled from "styled-components";
 import Tab from "../../../../reusable-ui/Tab";
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi'
 import { AiOutlinePlus } from 'react-icons/ai'
-import React, { SetStateAction } from "react";
+import { MdModeEditOutline } from 'react-icons/md'
+import { useContext } from "react";
 import { theme } from "../../../../../theme";
+import OrderContext from "../../../../../context/OrderContext";
 
-type AdminTabsProps = {
-  isCollapsed: boolean,
-  setIsCollapsed: React.Dispatch<SetStateAction<boolean>>
-}
+export default function AdminTabs() {
+  const { isCollapsed, setIsCollapsed, currentTabSelected, setCurrentTabSelected } = useContext(OrderContext)
 
-export default function AdminTabs({ isCollapsed, setIsCollapsed }: AdminTabsProps) {
+  const tabsConfig = [
+    {
+      index: "add",
+      label: "Ajouter un produit",
+      Icon: <AiOutlinePlus />,
+    },
+    {
+      index: "edit",
+      label: "Modifier un produit",
+      Icon: <MdModeEditOutline />,
+    },
+  ]
 
-  const handleClick = () => {
+  const handleCollapseClick = () => {
     setIsCollapsed(!isCollapsed)
+  }
+
+  const selectTab = (tabSelected: string) => {
+    setIsCollapsed(false)
+    setCurrentTabSelected(tabSelected)
   }
 
   return (
     <AdminTabsStyled>
         <Tab 
           Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />} 
-          onClick={ handleClick }
+          onClick={ handleCollapseClick }
           className={ isCollapsed ? "is-active" : "" }
-        />
-        <Tab 
-          label="Ajouter un produit"
-          Icon={<AiOutlinePlus />} 
-          onClick={ handleClick }
-          className={ isCollapsed ? "is-active" : "" }
-        />
+        />        
+
+        { tabsConfig.map((tab, idx) => {                 
+          return <Tab 
+            key={idx}
+            label={tab.label}
+            Icon={tab.Icon} 
+            onClick={ () => selectTab(tab.index) }
+            className={ currentTabSelected ===  tab.index ? "is-active" : "" }
+          />
+        })}
     </AdminTabsStyled>
   )
 }
 
 const AdminTabsStyled = styled.div`
-
     display: flex;
     padding: 0 20px;
     gap: 1px;
