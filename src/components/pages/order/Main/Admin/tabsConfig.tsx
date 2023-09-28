@@ -1,5 +1,12 @@
+import { ReactElement } from 'react'
 import { AiOutlinePlus }  from 'react-icons/ai'
 import { MdModeEditOutline } from 'react-icons/md'
+
+type Tab = {
+      index: string,
+      label: string,
+      Icon: ReactElement,
+}
 
 export const tabsConfig = [
     {
@@ -13,3 +20,10 @@ export const tabsConfig = [
       Icon: <MdModeEditOutline/>,
     },
   ]
+
+export const getTabSelected = (tabs: Tab[], currentTabSelected: string) => {
+  if (tabs !== undefined && currentTabSelected !== undefined) {
+    return tabs.find((tab: Tab) => tab.index === currentTabSelected)
+  }
+}
+  

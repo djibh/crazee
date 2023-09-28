@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+      "lib": ["es6"],
       "target": "es5",
       "module": "commonjs",
       "jsx": "react-jsx",
@@ -8,9 +9,10 @@
       "esModuleInterop": true,
       "declaration": true,
       "emitDeclarationOnly": true,
-      "isolatedModules": true
+      "isolatedModules": true,
     },
     "include": [
-      "./src/**/*/*/*"
+      "./src/**/*/*/*",
+      "src/shared.type.ts"
     ]
   }

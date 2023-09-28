@@ -6,7 +6,7 @@ type OrderContextType = {
     isCollapsed: boolean,
     setIsCollapsed: React.Dispatch<React.SetStateAction<boolean>>
     currentTabSelected: string,
-    setCurrentTabSelected: React.Dispatch<React.SetStateAction<string>>
+    setCurrentTabSelected: React.Dispatch<React.SetStateAction<string>>,
 }
 
 const OrderContextInit = {
