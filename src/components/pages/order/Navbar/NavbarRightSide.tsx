@@ -6,10 +6,6 @@ import { useContext } from 'react';
 import ToastAdmin from './ToastAdmin';
 import OrderContext from '../../../../context/OrderContext';
 
-type Username = {
-  username: string,
-}
-
 export default function NavbarRightSide() {
   const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext)
 
