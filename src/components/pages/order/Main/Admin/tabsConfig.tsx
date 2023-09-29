@@ -1,4 +1,3 @@
-import { ReactElement } from 'react'
 import { AiOutlinePlus }  from 'react-icons/ai'
 import { MdModeEditOutline } from 'react-icons/md'
 
@@ -20,4 +19,3 @@ export const getTabSelected = (tabs: Tab[], currentTabSelected: string) => {
     return tabs.find((tab: Tab) => tab.index === currentTabSelected)
   }
 }
-  

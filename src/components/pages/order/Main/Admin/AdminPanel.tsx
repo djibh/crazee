@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import { getTabSelected, tabsConfig } from "./tabsConfig";
-import { ReactElement, useContext } from "react";
+import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 
 export default function AdminPanel() {
