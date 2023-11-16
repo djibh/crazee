@@ -20,6 +20,9 @@ export default function LoginForm() {
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => { 
     const target = event.target
     setInputValue(target.value)
+    console.log('====================================');
+    console.log(value);
+    console.log('====================================');
    }
 
   return (
