@@ -7,7 +7,7 @@ import OrderContext from "../../../../context/OrderContext";
 // import Basket from "./Basket";
 
 export default function Main() {
-  const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext)
+  const { isModeAdmin } = useContext(OrderContext)
 
   return (
     <MainStyled>

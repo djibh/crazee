@@ -1,4 +1,4 @@
-type Menu = {
+export type Menu = {
   id: number,
   imageSource: string,
   title: string,
@@ -6,7 +6,6 @@ type Menu = {
   quantity: number,
   isAvailable: boolean,
   isAdvertised: boolean,
-
 }
 
 const EMPTY: Menu[] = []

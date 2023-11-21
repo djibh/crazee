@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import Navbar from "./Navbar/Navbar";
 import Main from "./Main/Main";
@@ -6,12 +5,19 @@ import UnderContruction from "../../reusable-ui/UnderContruction";
 import { theme } from "../../../theme";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext"
+import { Menu, fakeMenu } from "../../../fakeData/fakeMenu";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false)
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [currentTabSelected, setCurrentTabSelected] = useState("add")
-
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM)
+  
+  const handleAddProduct = (product: Menu) => { 
+    const menuCopy = [...menu]
+    const menuUpdated = [product, ...menuCopy]
+    setMenu(menuUpdated)
+  }
 
   const orderContextValue = {
     isModeAdmin,
@@ -19,7 +25,9 @@ export default function OrderPage() {
     isCollapsed,
     setIsCollapsed,
     currentTabSelected,
-    setCurrentTabSelected
+    setCurrentTabSelected,
+    menu,
+    handleAddProduct
   }
 
   return (

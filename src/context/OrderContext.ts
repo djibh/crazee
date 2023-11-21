@@ -1,4 +1,5 @@
-import React, { createContext } from "react";
+import React, { FormEventHandler, createContext } from "react";
+import { Menu } from "../fakeData/fakeMenu";
 
 type OrderContextType = {
     isModeAdmin: boolean,
@@ -7,6 +8,8 @@ type OrderContextType = {
     setIsCollapsed: React.Dispatch<React.SetStateAction<boolean>>
     currentTabSelected: string,
     setCurrentTabSelected: React.Dispatch<React.SetStateAction<string>>,
+    menu: Array<Menu>,
+    handleAddProduct: any,
 }
 
 const OrderContextInit = {
@@ -16,6 +19,8 @@ const OrderContextInit = {
     setIsCollapsed: () => {},
     currentTabSelected : "",
     setCurrentTabSelected : () => "",
+    menu: [],
+    handleAddProduct: () => {},
 }
 
 const OrderContext = createContext<OrderContextType>(OrderContextInit)
