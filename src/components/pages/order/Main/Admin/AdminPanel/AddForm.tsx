@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import styled from "styled-components";
+import { v4 as uuidv4} from 'uuid';
 import OrderContext from "../../../../../../context/OrderContext";
 
 const EMPTY_PRODUCT = { id:'', title: 'Nouveau burger', imageSource:'', price: 14}
@@ -7,24 +8,20 @@ const EMPTY_PRODUCT = { id:'', title: 'Nouveau burger', imageSource:'', price: 1
 export default function AddForm() {
   const { handleAddProduct } = useContext(OrderContext)
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
-
-  const newProduct2 = {
-    id: new Date().getTime(),
-    title: 'Nouveau produit',
-    imageSource: 'https://burgerkingfrance.twic.pics/img/products/7/5a/75a852b5-32f1-4c0b-b7e9-4182ef150f51_?twic=v1/contain=600x600',
-    price: 8.5
-  }
+  const id = uuidv4()
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
-    handleAddProduct(newProduct)
+    const newProductToAdd = {
+        ...newProduct,
+        id: id
+    }
+    handleAddProduct(newProductToAdd)
   }
-
   const handleChange = (e: any) => { 
-      const newValue = e.target.value
-      const name = e.target.name
-      setNewProduct({ ...newProduct, [name]: newValue})
-   }
+      const { name, value } = e.target
+      setNewProduct({ ...newProduct, [name]: value})
+    }
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
