@@ -19,8 +19,9 @@ export default function AddForm() {
         id: id
     }
     handleAddProduct(newProductToAdd)
+    setNewProduct(EMPTY_PRODUCT)
+
     displaySuccessMessage()
-    
   }
 
   const displaySuccessMessage = () => { 
