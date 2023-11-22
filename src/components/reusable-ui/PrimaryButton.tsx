@@ -5,11 +5,12 @@ import { ReactElement } from 'react';
 
 type PrimaryButtonProps = {
   label: string,
-  Icon: ReactElement
+  Icon?: ReactElement,
+  className?: string
 }
 
-export default function PrimaryButton({ label, Icon }: PrimaryButtonProps) {
-  return <PrimaryButtonStyled>
+export default function PrimaryButton({ label, Icon, className }: PrimaryButtonProps) {
+  return <PrimaryButtonStyled className={className}>
             <span>{ label }</span>
             {Icon && Icon}
         </PrimaryButtonStyled>

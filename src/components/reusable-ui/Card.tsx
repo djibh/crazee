@@ -3,7 +3,13 @@ import { styled } from 'styled-components';
 import { theme } from '../../theme';
 import PrimaryButton from "./PrimaryButton";
 
-export default function Card({ title, imageSource, leftDescription }) {
+type CardProps = {
+  title: string,
+  imageSource: string,
+  leftDescription: string
+}
+
+export default function Card({ title, imageSource, leftDescription }: CardProps) {
     return (
       <CardStyled className="produit">
         <div className="image">
@@ -55,7 +61,7 @@ const CardStyled = styled.div`
       margin: auto 0;
       font-size: ${theme.fonts.size.P4};
       position: relative;
-      bottom: 10px;
+      bottom: 16px;
       font-weight: ${theme.fonts.weight.bold};
       color: ${theme.colors.dark};
       text-align: left;

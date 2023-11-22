@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { v4 as uuidv4} from 'uuid';
 import OrderContext from "../../../../../../context/OrderContext";
 
-const EMPTY_PRODUCT = { id:'', title: 'Nouveau burger', imageSource:'', price: 14}
+const EMPTY_PRODUCT = { id:'', title: '', imageSource:'', price: 0}
 
 export default function AddForm() {
   const { handleAddProduct } = useContext(OrderContext)
