@@ -11,6 +11,7 @@ type OrderContextType = {
     menu: Array<Menu>,
     handleAddProduct: any,
     handleProductDelete: any,
+    resetMenu: any
 }
 
 const OrderContextInit = {
@@ -23,6 +24,7 @@ const OrderContextInit = {
     menu: [],
     handleAddProduct: () => {},
     handleProductDelete: () => {},
+    resetMenu: () => {},
 }
 
 const OrderContext = createContext<OrderContextType>(OrderContextInit)

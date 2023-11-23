@@ -8,7 +8,14 @@ import OrderContext from "../../../../context/OrderContext";
 const DEFAULT_IMAGE = "/images/coming-soon.png"
 
 export default function Menu() {
-  const { menu, isModeAdmin, handleProductDelete } = useContext(OrderContext)
+  const { menu, isModeAdmin, handleProductDelete, resetMenu } = useContext(OrderContext)
+
+  if (menu.length === 0) { 
+    return <div>
+        <span>Pas de produit</span>
+        <button onClick={resetMenu}>Reset</button>
+      </div>
+  }
 
   return (
     <MenuStyled>
