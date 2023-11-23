@@ -10,6 +10,7 @@ type OrderContextType = {
     setCurrentTabSelected: React.Dispatch<React.SetStateAction<string>>,
     menu: Array<Menu>,
     handleAddProduct: any,
+    handleProductDelete: any,
 }
 
 const OrderContextInit = {
@@ -21,6 +22,7 @@ const OrderContextInit = {
     setCurrentTabSelected : () => "",
     menu: [],
     handleAddProduct: () => {},
+    handleProductDelete: () => {},
 }
 
 const OrderContext = createContext<OrderContextType>(OrderContextInit)

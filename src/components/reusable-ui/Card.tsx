@@ -8,13 +8,14 @@ type CardProps = {
   title: string,
   imageSource: string,
   leftDescription: string,
-  hasDeleteButton: boolean
+  hasDeleteButton: boolean,
+  onDelete: () => void
 }
 
-export default function Card({ title, imageSource, leftDescription, hasDeleteButton }: CardProps) {
+export default function Card({ title, imageSource, leftDescription, hasDeleteButton, onDelete }: CardProps) {
     return (
       <CardStyled className="produit">
-        {hasDeleteButton && <button className='delete-button' aria-label='delete-button'><TiDelete className='icon' /></button>}
+        {hasDeleteButton && <button className='delete-button' aria-label='delete-button' onClick={onDelete}><TiDelete className='icon' /></button>}
         <div className="image">
           <img src={imageSource} alt={title} />
         </div>
