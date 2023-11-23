@@ -7,13 +7,14 @@ import { TiDelete } from 'react-icons/ti'
 type CardProps = {
   title: string,
   imageSource: string,
-  leftDescription: string
+  leftDescription: string,
+  hasDeleteButton: boolean
 }
 
-export default function Card({ title, imageSource, leftDescription }: CardProps) {
+export default function Card({ title, imageSource, leftDescription, hasDeleteButton }: CardProps) {
     return (
       <CardStyled className="produit">
-        <button className='delete-button' aria-label='delete-button'><TiDelete className='icon' /></button>
+        {hasDeleteButton && <button className='delete-button' aria-label='delete-button'><TiDelete className='icon' /></button>}
         <div className="image">
           <img src={imageSource} alt={title} />
         </div>
