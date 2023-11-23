@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import { styled } from 'styled-components';
 import { theme } from '../../theme';
 import { ChangeEventHandler, ReactElement } from 'react';
@@ -7,12 +6,13 @@ type TextInputProps = {
   value: string,
   onChange: ChangeEventHandler<HTMLInputElement>,
   placeholder: string,
-  Icon: ReactElement
+  Icon: ReactElement,
+  classname: string
 }
 
-export default function TextInput({ value, onChange, Icon, ...extraProps }: TextInputProps) {
-  return <InputStyled>
-      {Icon && Icon}
+export default function TextInput({ value, onChange, Icon, classname, ...extraProps }: TextInputProps) {
+  return <InputStyled className={classname}>
+      <div className='icon'>{Icon && Icon}</div>
       <input value={ value } onChange={ onChange } type="text" { ...extraProps } required/>
     </InputStyled>
 }
@@ -23,7 +23,6 @@ const InputStyled = styled.div`
     display: flex;
     align-items: center;
     padding: 18px 24px;
-    margin: 18px 0;
 
     & * {
       font-size: ${theme.fonts.size.SM};
@@ -39,10 +38,12 @@ const InputStyled = styled.div`
         color: ${theme.colors.greyMedium};
       }
     }
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-inline: ${theme.spacing.sm} ${theme.spacing.xs};
+      color: ${theme.colors.greySemiDark};
+    }  
 `;
-    
-TextInput.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  Icon: PropTypes.element
-}

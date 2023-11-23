@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import { styled } from 'styled-components';
 import { theme } from '../../theme';
 import { ReactElement } from 'react';
@@ -12,7 +11,7 @@ type PrimaryButtonProps = {
 export default function PrimaryButton({ label, Icon, className }: PrimaryButtonProps) {
   return <PrimaryButtonStyled className={className}>
             <span>{ label }</span>
-            {Icon && Icon}
+            <div className='icon'>{Icon && Icon}</div>
         </PrimaryButtonStyled>
 }
 
@@ -47,9 +46,10 @@ const PrimaryButtonStyled = styled.button`
       opacity: 0.6;
       cursor: not-allowed;
     }
-`;
 
-PrimaryButton.propTypes = {
-    label: PropTypes.string,
-    Icon: PropTypes.element
-}
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }  
+`;

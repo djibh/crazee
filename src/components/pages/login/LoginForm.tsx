@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FormEvent, useState } from "react"
+import { ChangeEventHandler, EventHandler, FormEvent, InputHTMLAttributes, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { styled } from "styled-components"
 import { IoChevronForward } from "react-icons/io5"
@@ -17,12 +17,9 @@ export default function LoginForm() {
     navigate(`order/${ inputValue }`)
   }
 
-  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => { 
-    const target = event.target
-    setInputValue(target.value)
-    console.log('====================================');
-    console.log(value);
-    console.log('====================================');
+  const handleChange = (event: any) => { 
+    const { value } = event.target
+    setInputValue(value)
    }
 
   return (
@@ -34,7 +31,8 @@ export default function LoginForm() {
           value={inputValue} 
           onChange={ handleChange } 
           placeholder={"Entrez votre prénom"} 
-          Icon={<BsPersonCircle className="form-icons"/>} 
+          Icon={<BsPersonCircle/>} 
+          classname="text-input"
         />
         <PrimaryButton 
           label={"Accéder à mon espace"}
@@ -67,8 +65,7 @@ const LoginFormStyled = styled.form`
     font-size: ${theme.fonts.size.P4};
   }
 
-  .form-icons {
-      margin-right: ${theme.spacing.xs};
-      color: ${theme.colors.greySemiDark};
-    }  
+  .text-input {
+    margin: 18px 0;
+  }
 `;
