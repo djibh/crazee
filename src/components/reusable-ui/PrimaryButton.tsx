@@ -11,7 +11,7 @@ type PrimaryButtonProps = {
 export default function PrimaryButton({ label, Icon, className }: PrimaryButtonProps) {
   return <PrimaryButtonStyled className={className}>
             <span>{ label }</span>
-            <div className='icon'>{Icon && Icon}</div>
+            { Icon && <div className='icon'>{ Icon }</div> }
         </PrimaryButtonStyled>
 }
 

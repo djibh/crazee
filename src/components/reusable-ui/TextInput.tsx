@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { theme } from '../../theme';
 import { ChangeEventHandler, ReactElement } from 'react';
 
@@ -7,43 +7,80 @@ type TextInputProps = {
   onChange: ChangeEventHandler<HTMLInputElement>,
   placeholder: string,
   Icon: ReactElement,
-  classname: string
+  classname: string,
+  version: string
 }
 
-export default function TextInput({ value, onChange, Icon, classname, ...extraProps }: TextInputProps) {
-  return <InputStyled className={classname}>
+export default function TextInput({ value, onChange, Icon, classname, version = "normal", ...extraProps }: TextInputProps) {
+  return <TextInputStyled className={classname} version={version}>
       <div className='icon'>{Icon && Icon}</div>
       <input value={ value } onChange={ onChange } type="text" { ...extraProps } required/>
-    </InputStyled>
+    </TextInputStyled>
 }
 
-const InputStyled = styled.div`
+const TextInputStyled = styled.div`
+  display: flex;
+  align-items: center;
+  border-radius: ${theme.borderRadius.round};
+  background-color: ${theme.colors.white};
+
+  .icon {
+    font-size: ${theme.fonts.size.SM};
+    margin: 0 13px 0 8px;
+    display: flex; // to center icon vertically
+  }
+
+  input {
+    width: 100%;
     background-color: ${theme.colors.white};
-    border-radius: ${theme.borderRadius.round};
-    display: flex;
-    align-items: center;
-    padding: 18px 24px;
+    border: none;
+    font-size: ${theme.fonts.size.SM};
+    color: ${theme.colors.dark};
 
-    & * {
-      font-size: ${theme.fonts.size.SM};
-    }
-    
-    input {
-      background-color: ${theme.colors.white};
-      border: none;
-      color: ${theme.colors.dark};
-      width: 100%;
-      
-      &::placeholder {
-        color: ${theme.colors.greyMedium};
-      }
+    &::placeholder {
+      color: ${theme.colors.greyMedium};
     }
 
-    .icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-inline: ${theme.spacing.sm} ${theme.spacing.xs};
-      color: ${theme.colors.greySemiDark};
-    }  
-`;
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  /* ${(props) => {
+    if (props.version === "normal") return extraStyleNormal
+    if (props.version === "minimalist") return extraStyleMinimalist
+  }} */
+
+${({ version }) => extraStyle[version]}
+`
+
+const extraStyleNormal = css`
+  background-color: ${theme.colors.white};
+  padding: 18px 28px;
+  color: ${theme.colors.greySemiDark};
+
+  input {
+    &::placeholder {
+      background: ${theme.colors.white};
+    }
+  }
+`
+
+const extraStyleMinimalist = css`
+  background-color: ${theme.colors.background_white};
+  padding: 8px 16px;
+  color: ${theme.colors.greyBlue};
+
+  input {
+    background: ${theme.colors.background_white}; ////+
+
+    &:focus {
+      outline: 0;
+    }
+  }
+`
+
+const extraStyle = {
+  normal: extraStyleNormal,
+  minimalist: extraStyleMinimalist,
+}

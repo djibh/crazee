@@ -4,6 +4,10 @@ import { v4 as uuidv4} from 'uuid';
 import OrderContext from "../../../../../../context/OrderContext";
 import { FiCheck } from "react-icons/fi";
 import { theme } from "../../../../../../theme";
+import TextInput from "../../../../../reusable-ui/TextInput";
+import { BsFillCameraFill } from "react-icons/bs";
+import { MdOutlineEuro } from "react-icons/md";
+import { FaHamburger } from "react-icons/fa";
 
 const EMPTY_PRODUCT = { id:'', title: '', imageSource:'', price: 0}
 
@@ -47,15 +51,15 @@ export default function AddForm() {
             } 
         </div>
         <div className="input-fields">
-            <input name="title" value={newProduct.title} type="text" placeholder="Nom du produit (ex: Super Burger)" onChange={handleChange} />
-            <input name="imageSource" value={newProduct.imageSource} type="text" placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)" onChange={handleChange} />
-            <input name="price" value={newProduct.price ? newProduct.price : ''} type="text" placeholder="Prix" onChange={handleChange} />
+            <TextInput Icon={<FaHamburger />} version="minimalist" name="title" value={newProduct.title} type="text" placeholder="Nom du produit (ex: Super Burger)" onChange={handleChange} />
+            <TextInput Icon={<BsFillCameraFill/>} version="minimalist" name="imageSource" value={newProduct.imageSource} type="text" placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)" onChange={handleChange} />
+            <TextInput Icon={<MdOutlineEuro/>} version="minimalist" name="price" value={newProduct.price ? newProduct.price : ''} type="text" placeholder="Prix" onChange={handleChange} />
         </div>
         <div className="submit">
-            <button className="submit-button">Submit</button>
+            <button className="submit-button">Ajouter un nouveau produit au menu</button>
             {isSubmitted && <div className="submit-message">
                 <FiCheck />
-                <span>Ajouté avec succès</span>
+                <span>Ajouté avec succès !</span>
             </div>}
         </div>
     </AddFormStyled>
@@ -98,10 +102,10 @@ const AddFormStyled = styled.form`
         }
     }
     .input-fields {
-        background: blue;
         grid-area: 1 / 2 / 4 / -1;
 
         display: grid;
+        row-gap: 8px;
     }
     .submit {
         grid-area: 4/ 2 / -1 / -1;
