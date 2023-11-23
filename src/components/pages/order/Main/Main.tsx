@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import Menu from "./Menu";
+import Menu from "./Menu/Menu";
 import { theme } from "../../../../theme";
 import Admin from "./Admin/Admin";
 import { useContext } from "react";
