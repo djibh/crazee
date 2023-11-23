@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import { styled } from 'styled-components';
 import { theme } from '../../theme';
 import PrimaryButton from "./PrimaryButton";
+import { TiDelete } from 'react-icons/ti'
 
 type CardProps = {
   title: string,
@@ -12,6 +13,7 @@ type CardProps = {
 export default function Card({ title, imageSource, leftDescription }: CardProps) {
     return (
       <CardStyled className="produit">
+        <button className='delete-button' aria-label='delete-button'><TiDelete className='icon' /></button>
         <div className="image">
           <img src={imageSource} alt={title} />
         </div>
@@ -29,6 +31,7 @@ export default function Card({ title, imageSource, leftDescription }: CardProps)
   }
 
 const CardStyled = styled.div`
+  position: relative;
   background: ${theme.colors.white};
   width: 200px;
   height: 300px;
@@ -38,6 +41,32 @@ const CardStyled = styled.div`
   padding-bottom: 10px;
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   border-radius: ${theme.borderRadius.extraRound};
+
+  .delete-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    color: ${theme.colors.primary};
+    z-index: 2;
+    padding: 0;
+    border: none;
+    background: none;
+
+    :hover {
+      color: ${theme.colors.red};
+    }
+    :active {
+      color: ${theme.colors.primary};
+    }
+
+    .icon {
+      width: 100%;
+      height: 100%;
+    }
+  }
 
   .image {
     width: 100%;

@@ -27,6 +27,8 @@ const UnderConstructionStyled = styled.button`
 
     font-size: 1.1rem;
 
+    z-index: 10;
+
     * {
         padding-inline: 0.5rem;
     }
